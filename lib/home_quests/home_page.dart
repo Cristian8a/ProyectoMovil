@@ -1,14 +1,22 @@
-import 'dart:io';
-
 import 'package:code_masters/get_started/login_home.dart';
 import 'package:code_masters/get_started/register_home.dart';
+import 'package:code_masters/home_quests/post_contanier.dart';
 import 'package:flutter/material.dart';
 
 class HomeQuest extends StatelessWidget {
-  const HomeQuest({super.key});
+  const HomeQuest({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Widget post = buildPostContainer(
+      "Titulo 1",
+      "Llorem ipsum",
+      "tag1",
+      "active",
+      "Cristian",
+      "16/10/2023",
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -27,8 +35,10 @@ class HomeQuest extends StatelessWidget {
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
           ElevatedButton(
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => RegisterHome()));
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => RegisterHome()),
+              );
             },
             child: Text('Sign Up'),
             style: ElevatedButton.styleFrom(
@@ -41,7 +51,9 @@ class HomeQuest extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomePage()));
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
             },
             child: Text('Log in'),
             style: ElevatedButton.styleFrom(
@@ -54,75 +66,109 @@ class HomeQuest extends StatelessWidget {
         ],
       ),
       backgroundColor: Color.fromARGB(255, 193, 201, 247),
-      body: Container(
-        child: Container(
-          child: Padding(
+      body: ListView(
+        children: <Widget>[
+          Padding(
             padding: EdgeInsets.all(30.0),
-            child: Row(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                Text("All Questions", style: TextStyle(fontSize: 36)),
+                SizedBox(height: 7),
+                Row(
                   children: [
-                    Text("All Questions", style: TextStyle(fontSize: 26)),
-                    SizedBox(height: 7),
-                    Row(
+                    ElevatedButton(
+                      onPressed: () {},
+                      child:
+                          Text("Newest", style: TextStyle(color: Colors.black)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        side: BorderSide(color: Colors.black),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(20),
+                            bottomLeft: Radius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text("Frequent",
+                          style: TextStyle(color: Colors.black)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        side: BorderSide(color: Colors.black),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                        shape: ContinuousRectangleBorder(),
+                      ),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text("Unanswered",
+                          style: TextStyle(color: Colors.black)),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        side: BorderSide(color: Colors.black),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(20),
+                            bottomRight: Radius.circular(20),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 90,
+                    ),
+                    Column(
                       children: [
                         ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Newest",
-                              style: TextStyle(color: Colors.black)),
+                          onPressed: () {
+                            // Acción del primer botón nuevo
+                          },
+                          child: Text("Ask Questions"),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.black,
+                            backgroundColor: Colors.indigo,
+                            padding: EdgeInsets.all(5),
                           ),
                         ),
+                        SizedBox(height: 10),
                         ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Frequent",
-                              style: TextStyle(color: Colors.black)),
+                          onPressed: () {
+                            // Acción del segundo botón nuevo
+                          },
+                          child: Text("Share Content"),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.black,
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: Text("Unanswered",
-                              style: TextStyle(color: Colors.black)),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            foregroundColor: Colors.black,
+                            backgroundColor: Colors.grey,
+                            padding: EdgeInsets.all(5),
                           ),
                         ),
                       ],
                     ),
                   ],
                 ),
-                Spacer(), // Espaciador flexible
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Acción del primer botón nuevo
-                      },
-                      child: Text("All Questions"),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        // Acción del segundo botón nuevo
-                      },
-                      child: Text("Share content"),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
-        ),
+          Divider(
+            height: 20,
+            color: Colors.black,
+          ),
+          post,
+          Divider(
+            height: 30,
+            color: Colors.black,
+          ),
+        ],
       ),
     );
   }

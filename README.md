@@ -18,6 +18,10 @@ samples, guidance on mobile development, and a full API reference.
 
 --- TODO 1
     Problemas con aspecto deseado de la aplicación, poosición, colores, tamaño de botones
+        (Editar comportamiento de lineas y columnas)
 
 --- TODO 2
     Problemas con las flechas al hacer navigation (puede arreglarse con provider o bloc).
+
+-- TODO 3 Empezar con las llamadas a foro (puede usarse provider). También dar el formato 
+        necesario al contenedor de publicación
