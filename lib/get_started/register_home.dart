@@ -52,8 +52,8 @@ class RegisterHome extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    width: 150, // Ancho deseado
-                    height: 150, // Alto deseado
+                    width: 100, // Ancho deseado
+                    height: 100, // Alto deseado
                     child: Image.asset(
                       'assets/CodeMastersLogo.png',
                       fit: BoxFit
@@ -62,13 +62,13 @@ class RegisterHome extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Welcome to the ultimate coding ",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
@@ -77,11 +77,11 @@ class RegisterHome extends StatelessWidget {
                 children: [
                   Text(
                     "community ( ͡° ͜ʖ ͡ -)",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
                   )
                 ],
               ),
-              SizedBox(height: 40),
+              SizedBox(height: 10),
               Padding(
                 padding: EdgeInsets.all(30.0),
                 child: Container(
@@ -96,7 +96,7 @@ class RegisterHome extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: <Widget>[
-                        SizedBox(height: 40),
+                        SizedBox(height: 10),
                         TextFormField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -104,7 +104,7 @@ class RegisterHome extends StatelessWidget {
                             icon: Icon(Icons.person),
                           ),
                         ),
-                        SizedBox(height: 16.0),
+                        SizedBox(height: 10.0),
                         TextFormField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -112,7 +112,7 @@ class RegisterHome extends StatelessWidget {
                             icon: Icon(Icons.email),
                           ),
                         ),
-                        SizedBox(height: 16.0),
+                        SizedBox(height: 10.0),
                         TextFormField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -121,7 +121,7 @@ class RegisterHome extends StatelessWidget {
                           ),
                           obscureText: true,
                         ),
-                        SizedBox(height: 16.0),
+                        SizedBox(height: 10.0),
                         TextFormField(
                           decoration: InputDecoration(
                             border: OutlineInputBorder(),
@@ -130,8 +130,8 @@ class RegisterHome extends StatelessWidget {
                           ),
                           obscureText: true,
                         ),
-                        SizedBox(height: 24.0),
-                        SizedBox(height: 30.0),
+                        SizedBox(height: 11.0),
+                        SizedBox(height: 10.0),
                         ElevatedButton(
                           onPressed: () {
                             // Lógica de inicio de sesión aquí
