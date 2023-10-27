@@ -24,7 +24,7 @@ class HomeQuest extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(5.0),
               child: Image.asset(
-                'assets/CodeMasters.png',
+                'assets/CodeMastersLogo.png',
                 width: 40,
                 height: 40,
               ),

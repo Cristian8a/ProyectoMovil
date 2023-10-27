@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(5.0),
               child: Image.asset(
-                'assets/CodeMasters.png',
+                'assets/CodeMastersLogo.png',
                 width: 40,
                 height: 40,
               ),
@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
                     width: 150, // Ancho deseado
                     height: 150, // Alto deseado
                     child: Image.asset(
-                      'assets/CodeMasters.png',
+                      'assets/CodeMastersLogo.png',
                       fit: BoxFit
                           .contain, // Ajusta la imagen dentro del Container
                     ),
