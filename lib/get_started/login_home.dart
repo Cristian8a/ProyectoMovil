@@ -18,28 +18,31 @@ class HomePage extends StatelessWidget {
                 height: 40,
               ),
             ),
-            Text('Login'),
+            Text('Log In'),
           ],
         ),
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => RegisterHome()));
-            },
-            child: Text('Sign Up'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 73, 96, 229),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => RegisterHome()));
+              },
+              child: Text('Sign Up'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 73, 96, 229),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
               ),
             ),
           ),
         ],
       ),
       backgroundColor: Color.fromARGB(
-          255, 193, 201, 247), // Cambia el color de fondo de la pantalla aquí
+          255, 193, 201, 247), // Cambia el color de fondo de la pantalla
       body: Center(
         child: Padding(
           padding: EdgeInsets.all(12.0),

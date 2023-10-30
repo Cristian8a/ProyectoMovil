@@ -1,4 +1,5 @@
 import 'package:code_masters/get_started/login_home.dart';
+import 'package:code_masters/home_quests/home_page.dart';
 import 'package:flutter/material.dart';
 
 class RegisterHome extends StatelessWidget {
@@ -23,16 +24,19 @@ class RegisterHome extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomePage()));
-            },
-            child: Text('Log in'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 7, 11, 67),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => HomePage()));
+              },
+              child: Text('Log in'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 7, 11, 67),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                ),
               ),
             ),
           ),

@@ -10,9 +10,9 @@ class HomeQuest extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget post = buildPostContainer(
       "Titulo 1",
-      "Llorem ipsum",
+      "Comment that aims to give more information about the question that is been asked.",
       "tag1",
-      "active",
+      "Answered",
       "Cristian",
       "16/10/2023",
     );
@@ -33,104 +33,117 @@ class HomeQuest extends StatelessWidget {
         ),
         actions: <Widget>[
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RegisterHome()),
-              );
-            },
-            child: Text('Sign Up'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 73, 96, 229),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterHome()),
+                );
+              },
+              child: Text('Sign Up'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 73, 96, 229),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
               ),
             ),
           ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomePage()),
-              );
-            },
-            child: Text('Log in'),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Color.fromARGB(255, 7, 11, 67),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              },
+              child: Text('Log in'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 7, 11, 67),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                ),
               ),
             ),
           ),
         ],
       ),
-      backgroundColor: Color.fromARGB(255, 193, 201, 247),
-      body: ListView(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(30.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("All Questions", style: TextStyle(fontSize: 36)),
-                SizedBox(height: 7),
-                Row(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      child:
-                          Text("Newest", style: TextStyle(color: Colors.black)),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                        side: BorderSide(color: Colors.black),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(20),
-                            bottomLeft: Radius.circular(20),
+      body: Container(
+        color: Colors.grey.shade200,
+        child: ListView(
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(30.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("All Questions", style: TextStyle(fontSize: 36)),
+                      SizedBox(height: 7),
+                      Row(
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Newest",
+                                style: TextStyle(color: Colors.black)),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: Colors.black,
+                              side: BorderSide(color: Colors.black),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 10),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20),
+                                  bottomLeft: Radius.circular(20),
+                                ),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text("Frequent",
-                          style: TextStyle(color: Colors.black)),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                        side: BorderSide(color: Colors.black),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                        shape: ContinuousRectangleBorder(),
-                      ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text("Unanswered",
-                          style: TextStyle(color: Colors.black)),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: Colors.black,
-                        side: BorderSide(color: Colors.black),
-                        padding:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topRight: Radius.circular(20),
-                            bottomRight: Radius.circular(20),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Frequent",
+                                style: TextStyle(color: Colors.black)),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: Colors.black,
+                              side: BorderSide(color: Colors.black),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 10),
+                            ),
                           ),
-                        ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            child: Text("Unanswered",
+                                style: TextStyle(color: Colors.black)),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              foregroundColor: Colors.black,
+                              side: BorderSide(color: Colors.black),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 20, horizontal: 10),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topRight: Radius.circular(20),
+                                  bottomRight: Radius.circular(20),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    SizedBox(
-                      width: 90,
-                    ),
-                    Column(
+                    ],
+                  ),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
+                        SizedBox(height: 15),
                         ElevatedButton(
                           onPressed: () {
                             // Acción del primer botón nuevo
@@ -141,7 +154,7 @@ class HomeQuest extends StatelessWidget {
                             padding: EdgeInsets.all(5),
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: 25),
                         ElevatedButton(
                           onPressed: () {
                             // Acción del segundo botón nuevo
@@ -154,21 +167,21 @@ class HomeQuest extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
-          ),
-          Divider(
-            height: 20,
-            color: Colors.black,
-          ),
-          post,
-          Divider(
-            height: 30,
-            color: Colors.black,
-          ),
-        ],
+            Divider(
+              height: 20,
+              color: Colors.black,
+            ),
+            post,
+            Divider(
+              height: 30,
+              color: Colors.black,
+            ),
+          ],
+        ),
       ),
     );
   }
