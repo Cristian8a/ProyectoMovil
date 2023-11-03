@@ -1,10 +1,15 @@
 import 'package:code_masters/get_started/login_home.dart';
 import 'package:code_masters/get_started/register_home.dart';
 import 'package:code_masters/home_quests/post_contanier.dart';
+import 'package:code_masters/home_quests/routes/ask_questions.dart';
 import 'package:flutter/material.dart';
 
 class HomeQuest extends StatelessWidget {
-  const HomeQuest({Key? key}) : super(key: key);
+  HomeQuest({Key? key}) : super(key: key);
+
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController tagsController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -146,7 +151,11 @@ class HomeQuest extends StatelessWidget {
                         SizedBox(height: 15),
                         ElevatedButton(
                           onPressed: () {
-                            // Acción del primer botón nuevo
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AskQuestions()),
+                            );
                           },
                           child: Text("Ask Questions"),
                           style: ElevatedButton.styleFrom(
@@ -156,9 +165,7 @@ class HomeQuest extends StatelessWidget {
                         ),
                         SizedBox(height: 25),
                         ElevatedButton(
-                          onPressed: () {
-                            // Acción del segundo botón nuevo
-                          },
+                          onPressed: () {},
                           child: Text("Share Content"),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey,
@@ -184,5 +191,17 @@ class HomeQuest extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void saveQuestion(BuildContext context) {
+    final String title = titleController.text;
+    final String description = descriptionController.text;
+    final String tags = tagsController.text;
+
+    // Lógica Guardado de post
+    // por ejemplo, enviarla a un servidor o guardarla en una base de datos local.
+
+    // Enviarla a pantalla anterior
+    // Navigator.pop(context);
   }
 }
