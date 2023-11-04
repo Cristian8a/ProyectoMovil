@@ -2,6 +2,7 @@ import 'package:code_masters/get_started/login_home.dart';
 import 'package:code_masters/get_started/register_home.dart';
 import 'package:code_masters/home_quests/post_contanier.dart';
 import 'package:code_masters/home_quests/routes/ask_questions.dart';
+import 'package:code_masters/home_quests/routes/post_content.dart';
 import 'package:flutter/material.dart';
 
 class HomeQuest extends StatelessWidget {
@@ -165,7 +166,13 @@ class HomeQuest extends StatelessWidget {
                         ),
                         SizedBox(height: 25),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PostContent()),
+                            );
+                          },
                           child: Text("Share Content"),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey,

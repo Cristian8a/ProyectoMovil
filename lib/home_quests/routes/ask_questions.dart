@@ -145,5 +145,3 @@ class AskQuestions extends StatelessWidget {
     );
   }
 }
-
-// Color.fromARGB(255, 255, 135, 126), 

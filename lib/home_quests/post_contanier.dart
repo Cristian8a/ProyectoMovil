@@ -24,8 +24,10 @@ Widget buildPostContainer(String title, String description, String tags,
         SizedBox(height: 10),
         Container(
           padding: EdgeInsets.all(5),
+          width: 55,
+          height: 30,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(5),
               color: Colors.lightBlue.shade100),
           child: Text(
             tags,
@@ -35,8 +37,10 @@ Widget buildPostContainer(String title, String description, String tags,
         SizedBox(height: 10),
         Container(
           padding: EdgeInsets.all(5),
+          width: 55,
+          height: 30,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20.0),
+              borderRadius: BorderRadius.circular(5),
               color: Colors.green.shade100),
           child: Text(
             status,
