@@ -1,3 +1,4 @@
+import 'package:code_masters/home_quests/routes/post_comments.dart';
 import 'package:flutter/material.dart';
 
 class PostContent extends StatelessWidget {
@@ -120,7 +121,12 @@ class PostContent extends StatelessWidget {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PostComments()));
+                      },
                       child: Text(
                         "Add comment",
                         style: TextStyle(color: Colors.black),
