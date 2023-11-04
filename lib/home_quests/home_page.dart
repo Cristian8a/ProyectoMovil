@@ -148,7 +148,7 @@ class HomeQuest extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        SizedBox(height: 15),
+                        //SizedBox(height: 5),
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(
@@ -157,16 +157,22 @@ class HomeQuest extends StatelessWidget {
                                   builder: (context) => AskQuestions()),
                             );
                           },
-                          child: Text("Ask Questions"),
+                          child: Text(
+                            "Ask Questions",
+                            style: TextStyle(fontSize: 10),
+                          ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.indigo,
                             padding: EdgeInsets.all(5),
                           ),
                         ),
-                        SizedBox(height: 25),
+                        SizedBox(height: 12),
                         ElevatedButton(
                           onPressed: () {},
-                          child: Text("Share Content"),
+                          child: Text(
+                            "Share Content",
+                            style: TextStyle(fontSize: 10),
+                          ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey,
                             padding: EdgeInsets.all(5),
