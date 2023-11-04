@@ -7,7 +7,30 @@ class PostComments extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Post Comments"),
+        title: Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(5.0),
+              child: Image.asset(
+                'assets/CodeMastersNegative.png',
+                width: 60,
+                height: 60,
+              ),
+            ),
+            Text(
+              'Add Comments',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              )),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),

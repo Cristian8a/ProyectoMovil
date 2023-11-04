@@ -30,17 +30,22 @@ class HomeQuest extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(5.0),
               child: Image.asset(
-                'assets/CodeMastersLogo.png',
-                width: 40,
-                height: 40,
+                'assets/CodeMastersNegative.png',
+                width: 60,
+                height: 60,
               ),
             ),
           ],
         ),
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              )),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -48,7 +53,10 @@ class HomeQuest extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => RegisterHome()),
                 );
               },
-              child: Text('Sign Up'),
+              child: Text(
+                'Sign Up',
+                style: TextStyle(color: Colors.white),
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 73, 96, 229),
                 shape: RoundedRectangleBorder(
@@ -58,7 +66,7 @@ class HomeQuest extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -66,7 +74,7 @@ class HomeQuest extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => HomePage()),
                 );
               },
-              child: Text('Log in'),
+              child: Text('Log in', style: TextStyle(color: Colors.white)),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 7, 11, 67),
                 shape: RoundedRectangleBorder(
@@ -160,7 +168,7 @@ class HomeQuest extends StatelessWidget {
                           },
                           child: Text(
                             "Ask Questions",
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(fontSize: 10, color: Colors.black),
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.indigo,
@@ -177,7 +185,7 @@ class HomeQuest extends StatelessWidget {
                           },
                           child: Text(
                             "Share Content",
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(fontSize: 10, color: Colors.black),
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey,

@@ -1,4 +1,5 @@
 import 'package:code_masters/get_started/register_home.dart';
+import 'package:code_masters/home_quests/home_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -13,16 +14,24 @@ class HomePage extends StatelessWidget {
             Padding(
               padding: EdgeInsets.all(5.0),
               child: Image.asset(
-                'assets/CodeMastersLogo.png',
-                width: 40,
-                height: 40,
+                'assets/CodeMastersNegative.png',
+                width: 60,
+                height: 60,
               ),
             ),
-            Text('Log In'),
+            Text(
+              'Log In',
+              style: TextStyle(color: Colors.white),
+            ),
           ],
         ),
         actions: <Widget>[
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              )),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: ElevatedButton(
@@ -30,7 +39,10 @@ class HomePage extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => RegisterHome()));
               },
-              child: Text('Sign Up'),
+              child: Text(
+                'Sign Up',
+                style: TextStyle(color: Colors.white),
+              ),
               style: ElevatedButton.styleFrom(
                 backgroundColor: Color.fromARGB(255, 73, 96, 229),
                 shape: RoundedRectangleBorder(
@@ -109,9 +121,15 @@ class HomePage extends StatelessWidget {
                         SizedBox(height: 30.0),
                         ElevatedButton(
                           onPressed: () {
-                            // Lógica de inicio de sesión aquí
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => HomeQuest()));
                           },
-                          child: Text('Log In'),
+                          child: Text(
+                            'Log In',
+                            style: TextStyle(color: Colors.white),
+                          ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 7, 11, 67),
                             shape: RoundedRectangleBorder(

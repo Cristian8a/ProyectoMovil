@@ -8,7 +8,30 @@ class AskQuestions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Ask Questions"),
+        title: Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(5.0),
+              child: Image.asset(
+                'assets/CodeMastersNegative.png',
+                width: 60,
+                height: 60,
+              ),
+            ),
+            Text(
+              'Ask Questions',
+              style: TextStyle(color: Colors.white),
+            ),
+          ],
+        ),
+        actions: <Widget>[
+          IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              )),
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
