@@ -2,7 +2,7 @@ import 'package:code_masters/home_quests/routes/post_comments.dart';
 import 'package:flutter/material.dart';
 
 class PostContent extends StatelessWidget {
-  const PostContent({Key? key});
+  const PostContent({Key? key, required data});
 
   @override
   Widget build(BuildContext context) {

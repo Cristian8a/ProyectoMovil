@@ -3,26 +3,15 @@ import 'package:code_masters/get_started/register_home.dart';
 import 'package:code_masters/home_quests/post_contanier.dart';
 import 'package:code_masters/home_quests/routes/ask_questions.dart';
 import 'package:code_masters/home_quests/routes/post_content.dart';
+import 'package:code_masters/providers/publication_providers.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class HomeQuest extends StatelessWidget {
   HomeQuest({Key? key}) : super(key: key);
 
-  final TextEditingController titleController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
-  final TextEditingController tagsController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
-    Widget post = buildPostContainer(
-      "Titulo 1",
-      "Comment that aims to give more information about the question that is been asked.",
-      "tag1",
-      "Answered",
-      "Cristian",
-      "16/10/2023",
-    );
-
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -202,7 +191,100 @@ class HomeQuest extends StatelessWidget {
               height: 20,
               color: Colors.black,
             ),
-            post,
+            ListView.builder(
+              itemCount: DataProvider.savedData.length,
+              itemBuilder: (context, index) {
+                final data = DataProvider.savedData[index];
+                return Container(
+                  padding: EdgeInsets.all(20),
+                  margin: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${data.title}',
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        '${data.question}',
+                        style: TextStyle(fontSize: 15),
+                      ),
+                      SizedBox(height: 10),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        width: 55,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.lightBlue.shade100),
+                        child: Text(
+                          '${data.tags}',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Container(
+                        padding: EdgeInsets.all(5),
+                        width: 55,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: Colors.green.shade100),
+                        child: Text(
+                          status,
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.person,
+                                        color: Colors.blue.shade300,
+                                        size: 10,
+                                      ),
+                                      Text(
+                                        " Author: $author",
+                                        style: TextStyle(
+                                            fontSize: 10,
+                                            color: Colors.blue.shade300),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              SizedBox(width: 10),
+                              Column(
+                                children: [
+                                  Text(
+                                    "Date: $date",
+                                    style: TextStyle(fontSize: 10),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
             Divider(
               height: 30,
               color: Colors.black,
@@ -213,15 +295,9 @@ class HomeQuest extends StatelessWidget {
     );
   }
 
-  void saveQuestion(BuildContext context) {
-    final String title = titleController.text;
-    final String description = descriptionController.text;
-    final String tags = tagsController.text;
+  // Lógica Guardado de post
+  // por ejemplo, enviarla a un servidor o guardarla en una base de datos local.
 
-    // Lógica Guardado de post
-    // por ejemplo, enviarla a un servidor o guardarla en una base de datos local.
-
-    // Enviarla a pantalla anterior
-    // Navigator.pop(context);
-  }
+  // Enviarla a pantalla anterior
+  // Navigator.pop(context);
 }

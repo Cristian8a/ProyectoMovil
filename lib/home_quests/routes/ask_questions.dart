@@ -1,5 +1,7 @@
+import 'package:code_masters/providers/publication_providers.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AskQuestions extends StatelessWidget {
   const AskQuestions({Key? key});
@@ -51,6 +53,7 @@ class AskQuestions extends StatelessWidget {
                 ),
                 SizedBox(height: 30),
                 TextFormField(
+                  controller: context.watch<DataProvider>().questionTitle,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Color.fromARGB(255, 240, 240, 255),
@@ -61,6 +64,7 @@ class AskQuestions extends StatelessWidget {
                 ),
                 SizedBox(height: 30),
                 TextFormField(
+                  controller: context.watch<DataProvider>().questionDescription,
                   maxLines: 5,
                   decoration: InputDecoration(
                     filled: true,
@@ -72,6 +76,7 @@ class AskQuestions extends StatelessWidget {
                 ),
                 SizedBox(height: 30),
                 TextFormField(
+                  controller: context.watch<DataProvider>().questionCode,
                   maxLines: 7,
                   decoration: InputDecoration(
                     filled: true,
@@ -115,6 +120,7 @@ class AskQuestions extends StatelessWidget {
                 ),
                 SizedBox(height: 30),
                 TextFormField(
+                  controller: context.watch<DataProvider>().questionTags,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: Color.fromARGB(255, 240, 240, 255),
@@ -129,6 +135,7 @@ class AskQuestions extends StatelessWidget {
                     backgroundColor: Color.fromARGB(10, 18, 59, 1),
                   ),
                   onPressed: () {
+                    context.read<DataProvider>().saveData();
                     ScaffoldMessenger.of(context)
                       ..hideCurrentSnackBar()
                       ..showSnackBar(SnackBar(
@@ -145,6 +152,7 @@ class AskQuestions extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
+                    context.read<DataProvider>().resetAllControllers();
                     ScaffoldMessenger.of(context)
                       ..hideCurrentSnackBar()
                       ..showSnackBar(SnackBar(
