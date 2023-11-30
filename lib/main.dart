@@ -7,11 +7,9 @@ import 'package:provider/provider.dart';
 import 'package:code_masters/providers/publication_providers.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -24,7 +22,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.indigo,
           ),
         ),
-        home: HomeQuest(),
+        home: AskQuestions(),
       ),
     );
   }

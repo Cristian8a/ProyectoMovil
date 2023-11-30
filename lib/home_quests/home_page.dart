@@ -1,6 +1,5 @@
 import 'package:code_masters/get_started/login_home.dart';
 import 'package:code_masters/get_started/register_home.dart';
-import 'package:code_masters/home_quests/post_contanier.dart';
 import 'package:code_masters/home_quests/routes/ask_questions.dart';
 import 'package:code_masters/home_quests/routes/post_content.dart';
 import 'package:code_masters/providers/publication_providers.dart';
@@ -12,6 +11,8 @@ class HomeQuest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var dataProvider = Provider.of<DataProvider>(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -170,7 +171,9 @@ class HomeQuest extends StatelessWidget {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => PostContent()));
+                                    builder: (context) => PostContent(
+                                          data: null,
+                                        )));
                           },
                           child: Text(
                             "Share Content",
@@ -192,9 +195,9 @@ class HomeQuest extends StatelessWidget {
               color: Colors.black,
             ),
             ListView.builder(
-              itemCount: DataProvider.savedData.length,
+              itemCount: dataProvider.savedData.length,
               itemBuilder: (context, index) {
-                final data = DataProvider.savedData[index];
+                final data = dataProvider.savedData[index];
                 return Container(
                   padding: EdgeInsets.all(20),
                   margin: EdgeInsets.all(10),
@@ -237,7 +240,7 @@ class HomeQuest extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5),
                             color: Colors.green.shade100),
                         child: Text(
-                          status,
+                          '${data.status}',
                           style: TextStyle(fontSize: 12),
                         ),
                       ),
@@ -258,7 +261,7 @@ class HomeQuest extends StatelessWidget {
                                         size: 10,
                                       ),
                                       Text(
-                                        " Author: $author",
+                                        " Author: ${data.author}",
                                         style: TextStyle(
                                             fontSize: 10,
                                             color: Colors.blue.shade300),
@@ -271,7 +274,7 @@ class HomeQuest extends StatelessWidget {
                               Column(
                                 children: [
                                   Text(
-                                    "Date: $date",
+                                    "Date: ${data.date}",
                                     style: TextStyle(fontSize: 10),
                                   ),
                                 ],

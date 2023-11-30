@@ -1,3 +1,5 @@
+import 'package:code_masters/get_started/login_home.dart';
+import 'package:code_masters/home_quests/home_page.dart';
 import 'package:code_masters/providers/publication_providers.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
@@ -141,6 +143,10 @@ class AskQuestions extends StatelessWidget {
                       ..showSnackBar(SnackBar(
                         content: Text("Posteando pregunta..."),
                       ));
+                    Navigator.pop(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeQuest()),
+                    );
                   },
                   child: Text(
                     "Post",
