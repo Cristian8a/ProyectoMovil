@@ -23,7 +23,13 @@ El proyecto Code Masters nos proporcionó valiosas lecciones y conocimientos, en
 * Bloc y Equatable: Exploramos el patrón BLoC (Business Logic Component) y cómo usar la biblioteca Equatable para facilitar la comparación y actualización de objetos complejos en la aplicación.
 
 # Screenshots
-
+![login](login.jpg)
+![home](home_empty.jpg)
+![question](ask_question.jpg)
+![new_post](new_post.jpg)
+![post](post.jpg)
+![add_comment](add_comment.jpg)
+![post](post.jgp)
 
 # code_masters
 
