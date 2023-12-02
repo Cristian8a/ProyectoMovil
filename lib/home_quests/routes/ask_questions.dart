@@ -1,4 +1,3 @@
-import 'package:code_masters/get_started/login_home.dart';
 import 'package:code_masters/home_quests/home_page.dart';
 import 'package:code_masters/providers/publication_providers.dart';
 import 'package:file_picker/file_picker.dart';
@@ -10,6 +9,7 @@ class AskQuestions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var dataProvider = Provider.of<DataProvider>(context);
     return SingleChildScrollView(
       child: Scaffold(
         appBar: AppBar(
@@ -139,7 +139,7 @@ class AskQuestions extends StatelessWidget {
                       backgroundColor: Color.fromARGB(10, 18, 59, 1),
                     ),
                     onPressed: () {
-                      context.read<DataProvider>().saveData();
+                      dataProvider.saveData(DateTime.now());
                       ScaffoldMessenger.of(context)
                         ..hideCurrentSnackBar()
                         ..showSnackBar(SnackBar(

@@ -7,7 +7,8 @@ class PublicData {
   final String tags;
   bool status;
   final String author;
-  final String date;
+  final DateTime date;
+  int frequency;
 
   PublicData({
     required this.title,
@@ -17,6 +18,7 @@ class PublicData {
     required this.status,
     required this.author,
     required this.date,
+    required this.frequency,
   });
 }
 
@@ -30,18 +32,23 @@ class DataProvider extends ChangeNotifier {
   bool status = false;
 
   List<PublicData> savedData = [];
+  List<PublicData> getUnansweredPosts() {
+    return savedData.where((post) => !post.status).toList();
+  }
 
-  void saveData() {
+  void saveData(DateTime currentDate) {
     final data = PublicData(
       title: questionTitle.text,
       question: questionDescription.text,
       code: questionCode.text,
       tags: questionTags.text,
       author: Author.text,
-      date: Date.text,
+      date: currentDate,
       status: status,
+      frequency: 0,
     );
     savedData.add(data);
+    resetAllControllers();
     notifyListeners();
   }
 
@@ -50,6 +57,16 @@ class DataProvider extends ChangeNotifier {
     questionDescription.clear();
     questionCode.clear();
     questionTags.clear();
+    notifyListeners();
+  }
+
+  void sortDataByDate() {
+    savedData.sort((a, b) => b.date.compareTo(a.date));
+    notifyListeners();
+  }
+
+  void sortDataByFrequency() {
+    savedData.sort((a, b) => b.frequency.compareTo(a.frequency));
     notifyListeners();
   }
 }

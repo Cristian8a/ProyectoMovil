@@ -1,6 +1,8 @@
+import 'package:code_masters/auth/bloc/auth_bloc.dart';
 import 'package:code_masters/get_started/register_home.dart';
 import 'package:code_masters/home_quests/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -33,7 +35,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.white,
               )),
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(context,
@@ -137,13 +139,33 @@ class HomePage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20)
+                        SizedBox(height: 20),
+                        // Nuevo botón para iniciar sesión con Google
+                        ElevatedButton.icon(
+                          onPressed: () {
+                            BlocProvider.of<AuthBloc>(context)
+                                .add(GoogleAuthEvent());
+                          },
+                          icon: Image.asset(
+                            'assets/google_icon.png', // Reemplaza con tu propio ícono de Google
+                            height: 24,
+                            width: 24,
+                          ),
+                          label: Text('Sign In with Google'),
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            backgroundColor: Colors.white,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.0),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
               ),
-              Text("Dont’ have an account? Sign up")
+              Text("Dont have an account? Sign up")
             ],
           ),
         ),

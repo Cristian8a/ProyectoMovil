@@ -3,6 +3,7 @@ import 'package:code_masters/get_started/register_home.dart';
 import 'package:code_masters/home_quests/routes/ask_questions.dart';
 import 'package:code_masters/home_quests/routes/post_content.dart';
 import 'package:code_masters/providers/publication_providers.dart';
+import 'package:code_masters/home_quests/post_contanier.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +12,7 @@ class HomeQuest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var dataProvider = Provider.of<DataProvider>(context);
+    final dataProvider = Provider.of<DataProvider>(context);
 
     return Scaffold(
       appBar: AppBar(
@@ -92,7 +93,9 @@ class HomeQuest extends StatelessWidget {
                       Row(
                         children: [
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              dataProvider.sortDataByDate();
+                            },
                             child: Text("Newest",
                                 style: TextStyle(color: Colors.black)),
                             style: ElevatedButton.styleFrom(
@@ -110,7 +113,9 @@ class HomeQuest extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              dataProvider.sortDataByFrequency();
+                            },
                             child: Text("Frequent",
                                 style: TextStyle(color: Colors.black)),
                             style: ElevatedButton.styleFrom(
@@ -122,7 +127,11 @@ class HomeQuest extends StatelessWidget {
                             ),
                           ),
                           ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              List<PublicData> unansweredPosts =
+                                  dataProvider.getUnansweredPosts();
+                              print(unansweredPosts);
+                            },
                             child: Text("Unanswered",
                                 style: TextStyle(color: Colors.black)),
                             style: ElevatedButton.styleFrom(
@@ -158,7 +167,7 @@ class HomeQuest extends StatelessWidget {
                           },
                           child: Text(
                             "Ask Questions",
-                            style: TextStyle(fontSize: 10, color: Colors.black),
+                            style: TextStyle(fontSize: 10, color: Colors.white),
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.indigo,
@@ -169,15 +178,16 @@ class HomeQuest extends StatelessWidget {
                         ElevatedButton(
                           onPressed: () {
                             Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => PostContent(
-                                          data: null,
-                                        )));
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => PostContent(
+                                        data: null,
+                                      )),
+                            );
                           },
                           child: Text(
                             "Share Content",
-                            style: TextStyle(fontSize: 10, color: Colors.black),
+                            style: TextStyle(fontSize: 10, color: Colors.white),
                           ),
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Colors.grey,
@@ -194,100 +204,106 @@ class HomeQuest extends StatelessWidget {
               height: 20,
               color: Colors.black,
             ),
-            ListView.builder(
-              itemCount: dataProvider.savedData.length,
-              itemBuilder: (context, index) {
-                final data = dataProvider.savedData[index];
-                return Container(
-                  padding: EdgeInsets.all(20),
-                  margin: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        '${data.title}',
-                        style: TextStyle(
-                            fontSize: 24, fontWeight: FontWeight.bold),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        '${data.question}',
-                        style: TextStyle(fontSize: 15),
-                      ),
-                      SizedBox(height: 10),
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        width: 55,
-                        height: 30,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.lightBlue.shade100),
-                        child: Text(
-                          '${data.tags}',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        width: 55,
-                        height: 30,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.green.shade100),
-                        child: Text(
-                          '${data.status}',
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Column(
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        Icons.person,
-                                        color: Colors.blue.shade300,
-                                        size: 10,
-                                      ),
-                                      Text(
-                                        " Author: ${data.author}",
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            color: Colors.blue.shade300),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              SizedBox(width: 10),
-                              Column(
-                                children: [
-                                  Text(
-                                    "Date: ${data.date}",
-                                    style: TextStyle(fontSize: 10),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              },
+            SizedBox(
+              height: 20,
             ),
+            buildPostContainer(dataProvider),
+            // ListView.builder(
+            //   itemExtent: 200,
+            // ListView.builder(
+            //   itemCount: dataProvider.savedData.length,
+            //   itemBuilder: (context, index) {
+            //     final data = dataProvider.savedData[index];
+            //     return Container(
+            //       padding: EdgeInsets.all(20),
+            //       margin: EdgeInsets.all(10),
+            //       decoration: BoxDecoration(
+            //         color: Colors.white,
+            //         borderRadius: BorderRadius.circular(10),
+            //       ),
+            //       child: Column(
+            //         crossAxisAlignment: CrossAxisAlignment.start,
+            //         children: [
+            //           Text(
+            //             '${data.title}',
+            //             style: TextStyle(
+            //                 fontSize: 24, fontWeight: FontWeight.bold),
+            //           ),
+            //           SizedBox(height: 10),
+            //           Text(
+            //             '${data.question}',
+            //             style: TextStyle(fontSize: 15),
+            //           ),
+            //           SizedBox(height: 10),
+            //           Container(
+            //             padding: EdgeInsets.all(5),
+            //             width: 55,
+            //             height: 30,
+            //             decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.circular(5),
+            //                 color: Colors.lightBlue.shade100),
+            //             child: Text(
+            //               '${data.tags}',
+            //               style: TextStyle(fontSize: 12),
+            //             ),
+            //           ),
+            //           SizedBox(height: 10),
+            //           Container(
+            //             padding: EdgeInsets.all(5),
+            //             width: 55,
+            //             height: 30,
+            //             decoration: BoxDecoration(
+            //                 borderRadius: BorderRadius.circular(5),
+            //                 color: Colors.green.shade100),
+            //             child: Text(
+            //               '${data.status}',
+            //               style: TextStyle(fontSize: 12),
+            //             ),
+            //           ),
+            //           SizedBox(height: 10),
+            //           Align(
+            //             alignment: Alignment.bottomRight,
+            //             child: Container(
+            //               child: Row(
+            //                 mainAxisAlignment: MainAxisAlignment.end,
+            //                 children: [
+            //                   Column(
+            //                     children: [
+            //                       Row(
+            //                         children: [
+            //                           Icon(
+            //                             Icons.person,
+            //                             color: Colors.blue.shade300,
+            //                             size: 10,
+            //                           ),
+            //                           Text(
+            //                             " Author: ${data.author}",
+            //                             style: TextStyle(
+            //                                 fontSize: 10,
+            //                                 color: Colors.blue.shade300),
+            //                           ),
+            //                         ],
+            //                       ),
+            //                     ],
+            //                   ),
+            //                   SizedBox(width: 10),
+            //                   Column(
+            //                     children: [
+            //                       Text(
+            //                         "Date: ${data.date}",
+            //                         style: TextStyle(fontSize: 10),
+            //                       ),
+            //                     ],
+            //                   )
+            //                 ],
+            //               ),
+            //             ),
+            //           ),
+            //         ],
+            //       ),
+            //     );
+            //   },
+            // ),
             Divider(
               height: 30,
               color: Colors.black,

@@ -59,7 +59,7 @@ class PostContent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Text(
-                          'Author´s name',
+                          'Authors name',
                           style: TextStyle(
                             fontSize: 16,
                           ),
