@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.indigo,
           ),
         ),
-        home: AskQuestions(),
+        home: HomePage(),
       ),
     );
   }
