@@ -26,7 +26,7 @@ El proyecto Code Masters nos proporcionó valiosas lecciones y conocimientos, en
 ![login](login.png)
 ![home](home_empty.png)
 ![question](ask_question.png)
-![new_post](new_post.png)
+![new_post](new_posts.png)
 ![post](post.png)
 ![add_comment](add_comment.png)
 ![post](post.png)
